@@ -1,8 +1,8 @@
 import TaxItem from '../TaxItem';
 
 export default class Beer extends TaxItem {
-  constructor(category, description, price) {
-    super(category, description, price);
+  constructor(description, price) {
+    super("Beer", description, price);
   }
 
   getTax() {
