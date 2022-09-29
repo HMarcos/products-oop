@@ -5,7 +5,11 @@ export default class TaxItem extends Item {
     super(category, description, price);
   }
 
-  calculateTax(taxRate) {
-    return this.price * taxRate;
+  calculateTax() {
+    return this.price * this.getTax();
+  }
+
+  getTax() {
+    return 0;
   }
 }

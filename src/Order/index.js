@@ -1,14 +1,8 @@
-import Item from '../Item';
+import TaxItem from '../TaxItem';
 
 export default class Order {
   constructor() {
     this.items = [];
-    this.taxes = {
-      Beer: 0.2,
-      Cigar: 0.25,
-      Eletronics: 0.3,
-      Water: 0,
-    };
   }
 
   addItem(item) {
@@ -26,7 +20,7 @@ export default class Order {
   getTaxes() {
     const totalTaxes = this.items.reduce(
       (sum, currentItem) =>
-        sum + currentItem.calculateTax(this.taxes[currentItem.category]),
+        sum + (currentItem instanceof TaxItem ? currentItem.calculateTax() : 0),
       0
     );
     return totalTaxes;
